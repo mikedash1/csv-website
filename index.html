@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cooper Square Ventures</title>
+<meta name="description" content="Cooper Square Ventures partners with founders to create and grow eCommerce and SaaS companies.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #ED1C24;
+    --red-deep: #c4151c;
+    --ink: #0e0e0f;
+    --ink-soft: #2a2a2c;
+    --muted: #7a7a7e;
+    --line: #e6e6e8;
+    --paper: #ffffff;
+    --bg-soft: #f6f5f3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center 35%;
+    display: flex;
+    flex-direction: column;
+    color: var(--paper);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(14, 14, 15, 0.35) 0%,
+      rgba(14, 14, 15, 0.15) 35%,
+      rgba(14, 14, 15, 0.55) 80%,
+      rgba(14, 14, 15, 0.85) 100%);
+    z-index: 1;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 240px;
+    height: 8px;
+    background: var(--red);
+    z-index: 3;
+  }
+
+  .nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 48px;
+  }
+
+  .nav-logo img {
+    height: 64px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.35));
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    opacity: 0.9;
+    transition: opacity 0.25s ease;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--red);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--red);
+    padding: 10px 20px;
+    border-radius: 2px;
+    transition: background 0.2s ease;
+  }
+
+  .nav-cta::after { display: none; }
+  .nav-cta:hover { background: var(--red-deep); }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 48px 100px;
+  }
+
+  .hero-inner {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.9s ease 0.2s both;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: var(--red);
+  }
+
+  .hero-title {
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    margin-bottom: 36px;
+    max-width: 1100px;
+    animation: fadeUp 1.1s ease 0.35s both;
+  }
+
+  .hero-title .accent {
+    color: var(--red);
+    display: inline-block;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 560px;
+    opacity: 0.92;
+    animation: fadeUp 1.1s ease 0.5s both;
+  }
+
+  .hero-meta {
+    position: absolute;
+    bottom: 32px;
+    left: 48px;
+    right: 48px;
+    z-index: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--paper);
+    opacity: 0.7;
+    animation: fadeUp 1.2s ease 0.8s both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ SECTIONS ============ */
+  .section {
+    padding: 130px 48px;
+    position: relative;
+  }
+
+  .section-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 64px;
+    margin-bottom: 88px;
+    align-items: start;
+  }
+
+  .section-num {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    padding-top: 8px;
+  }
+
+  .section-num::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--red);
+  }
+
+  .section-title {
+    font-weight: 700;
+    font-size: clamp(2.25rem, 4vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+
+  .section-title .accent { color: var(--red); }
+
+  /* ============ INVESTMENTS ============ */
+  .portfolio-category { margin-bottom: 72px; }
+
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 32px;
+  }
+
+  .category-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .category-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+  }
+
+  .category-dot.muted { background: var(--muted); }
+
+  .category-count { color: var(--muted); }
+
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+
+  .logo-card {
+    aspect-ratio: 5 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 36px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    position: relative;
+    background: var(--paper);
+    overflow: hidden;
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .logo-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    transition: border-color 0.25s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .logo-card:not(.no-link):hover {
+    background: var(--bg-soft);
+    z-index: 1;
+  }
+
+  .logo-card:not(.no-link):hover::after {
+    border-color: var(--red);
+  }
+
+  .logo-card.no-link { cursor: default; }
+
+  .logo-card img {
+    max-width: 75%;
+    max-height: 65%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-card:not(.no-link):hover img {
+    transform: scale(1.04);
+  }
+
+  .logo-card .visit {
+    position: absolute;
+    bottom: 14px;
+    right: 18px;
+    color: var(--red);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 2;
+  }
+
+  .logo-card:not(.no-link):hover .visit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ============ ABOUT ============ */
+  .about {
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 8px;
+    background: var(--red);
+  }
+
+  .about .section-num { color: rgba(255,255,255,0.5); }
+  .about .category-count { color: rgba(255,255,255,0.5); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    align-items: start;
+  }
+
+  .about-lead {
+    font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .about-lead .accent { color: var(--red); }
+
+  .about-body {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.78);
+    font-weight: 400;
+  }
+
+  .about-body p + p { margin-top: 20px; }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 88px;
+    padding-top: 64px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .pillar-num {
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .pillar-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .pillar-body {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact { background: var(--bg-soft); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    align-items: start;
+  }
+
+  .contact-info p {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    line-height: 1.7;
+  }
+
+  .contact-card {
+    margin-top: 40px;
+    padding: 28px;
+    background: var(--paper);
+    border-left: 3px solid var(--red);
+  }
+
+  .contact-card .mono {
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .contact-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .form-group { margin-bottom: 28px; }
+
+  .form-group label {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 14px 0;
+    border: none;
+    border-bottom: 1px solid #d4d3d0;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1.05rem;
+    color: var(--ink);
+    font-weight: 400;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-bottom-color: var(--red);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+    font-family: inherit;
+  }
+
+  .submit-btn {
+    background: var(--red);
+    color: var(--paper);
+    border: none;
+    padding: 16px 40px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 12px;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .submit-btn:hover {
+    background: var(--red-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(237, 28, 36, 0.25);
+  }
+
+  .submit-btn .arrow { transition: transform 0.3s ease; }
+  .submit-btn:hover .arrow { transform: translateX(4px); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.6);
+    padding: 56px 48px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-brand img {
+    height: 36px;
+    margin-bottom: 16px;
+  }
+
+  .footer-brand p {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+
+  .footer-col-title {
+    color: var(--paper);
+    font-weight: 600;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+  }
+
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover { color: var(--red); }
+
+  .footer-bottom {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ============ SCROLL REVEAL ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.85s ease, transform 0.85s ease;
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .nav { padding: 20px 24px; flex-wrap: wrap; gap: 16px; }
+    .nav-links { gap: 20px; font-size: 0.8rem; }
+    .nav-cta { padding: 8px 16px; }
+    .hero-content { padding: 0 24px 100px; }
+    .hero-meta { left: 24px; right: 24px; bottom: 24px; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .section { padding: 80px 24px; }
+    .section-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .pillars { grid-template-columns: 1fr; gap: 32px; margin-top: 56px; padding-top: 48px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .logo-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    footer { padding: 40px 24px 24px; }
+    .hero::after { width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <nav class="nav">
+    <a href="#" class="nav-logo">
+      <img src="images/logo-white.png" alt="Cooper Square Ventures">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#investments">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="hero-eyebrow mono">Cooper Square · New York</div>
+      <h1 class="hero-title">
+        Building enduring companies at the intersection of <span class="accent">software</span> and <span class="accent">commerce.</span>
+      </h1>
+      <p class="hero-subtitle">
+        A development and investment firm partnering with founders to create and grow eCommerce and SaaS businesses.
+      </p>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <div class="mono">Est. — Investments &amp; Development</div>
+    <div class="mono">Scroll ↓</div>
+  </div>
+</header>
+
+<section class="section investments" id="investments">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-num mono">01 / Portfolio</div>
+      <h2 class="section-title">
+        Companies we've <span class="accent">backed,</span> built, and partnered with.
+      </h2>
+    </div>
+
+    <div class="portfolio-category reveal">
+      <div class="category-header">
+        <div class="category-name"><span class="category-dot"></span>Active Investments</div>
+        <div class="category-count mono">Current Portfolio</div>
+      </div>
+      <div class="logo-grid">
+        <a href="https://givebutter.com/" class="logo-card" target="_blank" rel="noopener">
+          <img src="images/givebutter.png" alt="Givebutter">
+          <span class="visit mono">Visit ↗</span>
+        </a>
+        <a href="https://www.postpilot.com/" class="logo-card" target="_blank" rel="noopener">
+          <img src="images/postpilot.png" alt="PostPilot">
+          <span class="visit mono">Visit ↗</span>
+        </a>
+        <a href="http://www.threecolts.com" class="logo-card" target="_blank" rel="noopener">
+          <img src="images/threecolts.png" alt="Threecolts">
+          <span class="visit mono">Visit ↗</span>
+        </a>
+        <a href="http://www.yotpo.com" class="logo-card" target="_blank" rel="noopener">
+          <img src="images/yotpo.png" alt="Yotpo">
+          <span class="visit mono">Visit ↗</span>
+        </a>
+        <a href="https://lunchbox.io/" class="logo-card" target="_blank" rel="noopener">
+          <img src="images/lunchbox.png" alt="Lunchbox">
+          <span class="visit mono">Visit ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="portfolio-category reveal">
+      <div class="category-header">
+        <div class="category-name"><span class="category-dot muted"></span>Acquired</div>
+        <div class="category-count mono">Realized Exits</div>
+      </div>
+      <div class="logo-grid">
+        <a href="http://www.channelreply.com" class="logo-card" target="_blank" rel="noopener">
+          <img src="images/channelreply.png" alt="ChannelReply">
+          <span class="visit mono">Visit ↗</span>
+        </a>
+        <a href="https://www.akeneo.com/" class="logo-card" target="_blank" rel="noopener">
+          <img src="images/sigmento.png" alt="Sigmento">
+          <span class="visit mono">Visit ↗</span>
+        </a>
+        <div class="logo-card no-link">
+          <img src="images/carpartkings.jpg" alt="Car Part Kings">
+        </div>
+        <a href="http://www.medmo.com" class="logo-card" target="_blank" rel="noopener">
+          <img src="images/medmo.jpg" alt="Medmo">
+          <span class="visit mono">Visit ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-num mono">02 / About</div>
+      <h2 class="section-title">
+        Operators first. <span class="accent">Investors</span> second.
+      </h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-lead reveal">
+        We partner with founders to create and grow <span class="accent">eCommerce</span> and <span class="accent">SaaS</span> companies.
+      </div>
+      <div class="about-body reveal">
+        <p>As both investors and operators, Cooper Square Ventures brings capital, strategic insight, and executional support to help businesses scale with speed and resilience.</p>
+        <p>Our involvement extends beyond a check. We work alongside founders on the problems that define a company's trajectory: positioning, hiring, product, distribution, and the discipline required to build something that lasts.</p>
+      </div>
+    </div>
+
+    <div class="pillars reveal">
+      <div class="pillar">
+        <div class="pillar-num mono">01</div>
+        <div class="pillar-title">Capital</div>
+        <div class="pillar-body">Flexible funding aligned to the stage and needs of each company we partner with.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num mono">02</div>
+        <div class="pillar-title">Operating Experience</div>
+        <div class="pillar-body">We've built and scaled companies. We share what we've learned where it's useful.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num mono">03</div>
+        <div class="pillar-title">Long-term Conviction</div>
+        <div class="pillar-body">We back founders building for decades, not quarters. Patient capital, present partners.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-num mono">03 / Contact</div>
+      <h2 class="section-title">
+        Let's <span class="accent">talk.</span>
+      </h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p>Whether you're a founder looking for a partner, a portfolio company seeking support, or a peer wanting to connect, we'd be glad to hear from you.</p>
+        <div class="contact-card">
+          <div class="mono">Office</div>
+          <div class="contact-card-title">Cooper Square Ventures, LLC</div>
+          <div style="color: var(--muted); font-size: 0.95rem;">New York, NY</div>
+        </div>
+      </div>
+
+      <form action="https://formspree.io/f/xvzylzke" method="POST" class="reveal">
+        <div class="form-group">
+          <label class="mono" for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label class="mono" for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label class="mono" for="company">Company (optional)</label>
+          <input type="text" id="company" name="company">
+        </div>
+        <div class="form-group">
+          <label class="mono" for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          Send Message <span class="arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/logo-white.png" alt="Cooper Square Ventures">
+      <p>A development and investment firm partnering with founders to build enduring companies in commerce and software.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Site</div>
+      <a href="#investments">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Office</div>
+      <a href="#" style="cursor: default;">New York, NY</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="mono">© 2026 Cooper Square Ventures, LLC</div>
+    <div class="mono">All Rights Reserved</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
