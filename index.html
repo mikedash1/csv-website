@@ -142,7 +142,7 @@
     flex: 1;
     display: flex;
     align-items: flex-end;
-    padding: 0 48px 100px;
+    padding: 0 48px 150px;
   }
 
   .hero-inner {
@@ -198,12 +198,20 @@
     right: 48px;
     z-index: 4;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 10px;
     color: var(--paper);
     opacity: 0.7;
     animation: fadeUp 1.2s ease 0.8s both;
   }
+
+  .hero-stats {
+    align-self: center;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .hero-scroll { align-self: flex-end; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -606,8 +614,8 @@
     .nav { padding: 20px 24px; flex-wrap: wrap; gap: 16px; }
     .nav-links { gap: 20px; font-size: 0.8rem; }
     .nav-cta { padding: 8px 16px; }
-    .hero-content { padding: 0 24px 140px; }
-    .hero-meta { left: 24px; right: 24px; bottom: 24px; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .hero-content { padding: 0 24px 150px; }
+    .hero-meta { left: 24px; right: 24px; bottom: 24px; gap: 12px; }
     .section { padding: 80px 24px; }
     .section-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -618,6 +626,10 @@
     .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
     footer { padding: 40px 24px 24px; }
     .hero::after { width: 120px; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-stats { white-space: normal; letter-spacing: 0.06em; line-height: 1.7; }
   }
 </style>
 </head>
@@ -648,8 +660,8 @@
   </div>
 
   <div class="hero-meta">
-    <div class="mono">2 founder exits &middot; 20+ acquisitions &middot;  5 active portfolio companies</div>
-    <div class="mono">Scroll ↓</div>
+    <div class="mono hero-stats">20+&nbsp;acquisitions&nbsp;led &middot; 2&nbsp;founder&nbsp;exits &middot; 5&nbsp;active&nbsp;portfolio&nbsp;companies</div>
+    <div class="mono hero-scroll">Scroll ↓</div>
   </div>
 </header>
 
@@ -728,7 +740,7 @@
 
     <div class="about-grid">
       <div class="about-lead reveal">
-        We partner with founders to create, grow, and sell <span class="accent">eCommerce</span>, <span class="accent">SaaS</span>, and <span class="accent">Services</span> companies.
+        We partner with founders to create, grow, and sell <span class="accent">eCommerce</span>, <span class="accent">SaaS</span>, and <span class="accent">services</span> companies.
       </div>
       <div class="about-body reveal">
         <p>We’ve founded companies, scaled them, invested in them, led acquisitions, and sold our own. That full view, from first hire to final close, is what we bring to every founder we work with.</p>
@@ -809,7 +821,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="images/logo-white.png" alt="Cooper Square Ventures">
-      <p>Cooper Square Ventures invests in, builds, and advises eCommerce, SaaS and Services companies through exit.</p>
+      <p>Cooper Square Ventures invests in, builds, and advises eCommerce and SaaS companies through exit.</p>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Site</div>
