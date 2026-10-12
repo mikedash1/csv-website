@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cooper Square Ventures</title>
-<meta name="description" content="Cooper Square Ventures partners with founders to create and grow eCommerce and SaaS companies.">
+<meta name="description" content="Cooper Square Ventures invests in, builds, and advises eCommerce and SaaS companies through exit.">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -407,7 +407,7 @@
 
   .pillars {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
     margin-top: 88px;
     padding-top: 64px;
@@ -598,11 +598,15 @@
   }
 
   /* ============ RESPONSIVE ============ */
+  @media (max-width: 1200px) {
+    .pillars { grid-template-columns: repeat(2, 1fr); gap: 48px 32px; }
+  }
+
   @media (max-width: 900px) {
     .nav { padding: 20px 24px; flex-wrap: wrap; gap: 16px; }
     .nav-links { gap: 20px; font-size: 0.8rem; }
     .nav-cta { padding: 8px 16px; }
-    .hero-content { padding: 0 24px 100px; }
+    .hero-content { padding: 0 24px 140px; }
     .hero-meta { left: 24px; right: 24px; bottom: 24px; flex-direction: column; gap: 12px; align-items: flex-start; }
     .section { padding: 80px 24px; }
     .section-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; }
@@ -635,16 +639,16 @@
     <div class="hero-inner">
       <div class="hero-eyebrow mono">Cooper Square · New York</div>
       <h1 class="hero-title">
-        Building enduring companies at the intersection of <span class="accent">software</span> and <span class="accent">commerce.</span>
+        We help founders <span class="accent">build</span>, <span class="accent">grow</span>, and <span class="accent">sell</span> software, services, and commerce companies.
       </h1>
       <p class="hero-subtitle">
-        A development and investment firm partnering with founders to create and grow eCommerce and SaaS businesses.
+        Capital, operating experience, and M&amp;A advisory from people who've built, bought, and sold companies themselves.
       </p>
     </div>
   </div>
 
   <div class="hero-meta">
-    <div class="mono">Est. — Investments &amp; Development</div>
+    <div class="mono">2 founder exits &middot; 20+ acquisitions &middot;  5 active portfolio companies</div>
     <div class="mono">Scroll ↓</div>
   </div>
 </header>
@@ -718,17 +722,17 @@
     <div class="section-header reveal">
       <div class="section-num mono">02 / About</div>
       <h2 class="section-title">
-        Operators first. <span class="accent">Investors</span> second.
+        We’ve sat on every side of the table. 
       </h2>
     </div>
 
     <div class="about-grid">
       <div class="about-lead reveal">
-        We partner with founders to create and grow <span class="accent">eCommerce</span> and <span class="accent">SaaS</span> companies.
+        We partner with founders to create, grow, and sell <span class="accent">eCommerce</span>, <span class="accent">SaaS</span>, and <span class="accent">Services</span> companies.
       </div>
       <div class="about-body reveal">
-        <p>As both investors and operators, Cooper Square Ventures brings capital, strategic insight, and executional support to help businesses scale with speed and resilience.</p>
-        <p>Our involvement extends beyond a check. We work alongside founders on the problems that define a company's trajectory: positioning, hiring, product, distribution, and the discipline required to build something that lasts.</p>
+        <p>We’ve founded companies, scaled them, invested in them, led acquisitions, and sold our own. That full view, from first hire to final close, is what we bring to every founder we work with.</p>
+        <p>Some founders want capital and a partner who has actually run a business. Others are preparing to sell and want someone in their corner who knows how buyers think, because we’ve been the buyer. Most need both at different points. We work on the problems that decide how a company turns out: positioning, hiring, distribution, and when the time comes, the exit.</p>
       </div>
     </div>
 
@@ -736,17 +740,22 @@
       <div class="pillar">
         <div class="pillar-num mono">01</div>
         <div class="pillar-title">Capital</div>
-        <div class="pillar-body">Flexible funding aligned to the stage and needs of each company we partner with.</div>
+        <div class="pillar-body">Flexible checks sized to the stage and needs of the company.</div>
       </div>
       <div class="pillar">
         <div class="pillar-num mono">02</div>
         <div class="pillar-title">Operating Experience</div>
-        <div class="pillar-body">We've built and scaled companies. We share what we've learned where it's useful.</div>
+        <div class="pillar-body">We’ve built and scaled companies ourselves. We share what worked, and what didn’t, where it’s useful.</div>
       </div>
       <div class="pillar">
         <div class="pillar-num mono">03</div>
-        <div class="pillar-title">Long-term Conviction</div>
-        <div class="pillar-body">We back founders building for decades, not quarters. Patient capital, present partners.</div>
+        <div class="pillar-title">M&amp;A Advisory</div>
+        <div class="pillar-body">When it’s time to sell, we run the process: buyer mapping, positioning, preparation, and negotiation through close.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num mono">04</div>
+        <div class="pillar-title">Founder Alignment</div>
+        <div class="pillar-body">We’re on the founder’s side, whether that means building for another decade or selling next year.</div>
       </div>
     </div>
   </div>
@@ -763,7 +772,7 @@
 
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <p>Whether you're a founder looking for a partner, a portfolio company seeking support, or a peer wanting to connect, we'd be glad to hear from you.</p>
+        <p>Whether you’re a founder thinking about a sale, looking for a partner, or just want to compare notes, we’d be glad to hear from you. Conversations are always confidential.</p>
         <div class="contact-card">
           <div class="mono">Office</div>
           <div class="contact-card-title">Cooper Square Ventures, LLC</div>
@@ -800,7 +809,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="images/logo-white.png" alt="Cooper Square Ventures">
-      <p>A development and investment firm partnering with founders to build enduring companies in commerce and software.</p>
+      <p>Cooper Square Ventures invests in, builds, and advises eCommerce, SaaS and Services companies through exit.</p>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Site</div>
